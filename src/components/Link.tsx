@@ -1,12 +1,5 @@
 import { cn } from "@/utils/cn";
-import {
-	JSX,
-	Show,
-	createMemo,
-	createSignal,
-	onMount,
-	splitProps,
-} from "solid-js";
+import { JSX, Show, createMemo, splitProps } from "solid-js";
 import { usePageContext } from "vike-solid/usePageContext";
 
 export interface LinkProps
