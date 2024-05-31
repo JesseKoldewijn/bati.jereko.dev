@@ -1,8 +1,3 @@
-import {
-	authjsHandler,
-	authjsSessionMiddleware,
-} from "./src/server/authjs-handler";
-
 import { vikeHandler } from "./src/server/vike-handler";
 import { serve } from "@hono/node-server";
 import { serveStatic } from "@hono/node-server/serve-static";
@@ -55,14 +50,6 @@ if (isProduction) {
 		})
 	);
 }
-
-app.use(handlerAdapter(authjsSessionMiddleware));
-
-/**
- * Auth.js route
- * @link {@see https://authjs.dev/getting-started/installation}
- **/
-app.use("/api/auth/**", handlerAdapter(authjsHandler));
 
 /**
  * Vike route

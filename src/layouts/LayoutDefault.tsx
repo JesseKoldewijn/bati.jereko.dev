@@ -2,7 +2,9 @@ import NavBar from "@/components/layout/NavBar/root";
 import "@/styles/style.css";
 
 import "@/styles/tailwind.css";
+import { cn } from "@/utils/cn";
 import { onMount, type JSX } from "solid-js";
+import { usePageContext } from "vike-solid/usePageContext";
 
 export default function LayoutDefault(props: { children?: JSX.Element }) {
 	onMount(() => {
@@ -18,11 +20,24 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
 }
 
 function Content(props: { children: JSX.Element }) {
+	const pageCtx = usePageContext() as unknown as {
+		cookies: ReadonlyMap<string, string>;
+	};
+
 	return (
-		<div class="page-container flex max-w-4xl m-auto">
-			<div class="page-container-content p-5 pb-12 min-h-screen">
-				{props.children}
-			</div>
-		</div>
+		<>
+			<main class={cn("page-container flex max-w-4xl m-auto")}>
+				<div class="page-container-content p-5 pb-12 min-h-screen">
+					{props.children}
+				</div>
+			</main>
+			<script
+				id="__PAGE_CTX__"
+				// eslint-disable-next-line solid/no-innerhtml
+				innerHTML={`
+					window.__PAGE_CTX__ = ${JSON.stringify(pageCtx)};
+				`}
+			/>
+		</>
 	);
 }
