@@ -1,0 +1,21 @@
+/* Page Transition Animation */
+.page-container-content {
+	opacity: 1;
+}
+
+body.page-ready .page-container-content {
+	opacity: 1 !important;
+}
+
+body.page-is-transitioning .page-container-content {
+	animation: page-transition 0.5s ease-in-out;
+}
+
+@keyframes page-transition {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

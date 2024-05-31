@@ -1,7 +1,7 @@
-import { Link } from "../components/Link";
-import "./style.css";
+import { ButtonLink } from "@/components/ui/button";
+import "@/styles/style.css";
 
-import "./tailwind.css";
+import "@/styles/tailwind.css";
 import { createSignal, onMount, type JSX } from "solid-js";
 
 export default function LayoutDefault(props: { children?: JSX.Element }) {
@@ -10,7 +10,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
 	});
 
 	return (
-		<div class="flex inset-0 flex-col">
+		<div class="page flex inset-0 flex-col">
 			<Header />
 			<Content>{props.children}</Content>
 		</div>
@@ -50,12 +50,8 @@ function Header() {
 				>
 					<h1 class="text-3xl font-bold">Bati Jereko</h1>
 					<div class="flex items-center gap-4">
-						<Link href="/" class="text-lg">
-							Home
-						</Link>
-						<Link href="/about" class="text-lg">
-							About
-						</Link>
+						<ButtonLink href="/">Home</ButtonLink>
+						<ButtonLink href="/about">About</ButtonLink>
 					</div>
 				</div>
 			</div>
@@ -65,8 +61,8 @@ function Header() {
 
 function Content(props: { children: JSX.Element }) {
 	return (
-		<div id="page-container" class="flex max-w-4xl m-auto">
-			<div id="page-content" class="p-5 pb-12 min-h-screen">
+		<div class="page-container flex max-w-4xl m-auto">
+			<div class="page-container-content p-5 pb-12 min-h-screen">
 				{props.children}
 			</div>
 		</div>
