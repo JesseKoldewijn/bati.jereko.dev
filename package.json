@@ -28,6 +28,7 @@
 	},
 	"dependencies": {
 		"@auth/core": "^0.31.0",
+		"@corvu/drawer": "^0.2.1",
 		"@hono/node-server": "^1.11.1",
 		"@kobalte/core": "^0.13.2",
 		"@vite-plugin-vercel/vike": "^7.0.0",
